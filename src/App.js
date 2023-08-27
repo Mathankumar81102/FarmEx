@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Routes, Route,  BrowserRouter } from 'react-router-dom';
+import Home from './components/Home';
+import Queries from './components/Queries';
+import Feedback from './components/Feedback';
+import NotFound from './components/NotFound';
+import Navbar from './components/Navbar'
+import Footer from './components/Footer';
+import Feed from './components/Feed';
+import Singlefeed from './components/Singlefeed';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+    <BrowserRouter>
+    <div>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/queries" element={<Queries />} />
+        <Route path="/feedback" element={<Feedback />} />
+        <Route path="/feed" element={<Feed />} />
+        <Route path="/singlefeed" element={<Singlefeed />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+   
     </div>
+    </BrowserRouter>
   );
 }
 
